@@ -42,7 +42,6 @@ async def p(ctx, url: str):
 
     # Add the song to the queue
     queue.append(url)
-    print(queue)
     await ctx.send(f"Added to queue: {url}")
 
     # Start playback if not already playing

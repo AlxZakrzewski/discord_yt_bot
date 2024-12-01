@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import subprocess
 import asyncio
 import hashlib
@@ -23,6 +23,7 @@ voice_client = None
 queue = []  # Queue to store song URLs
 is_playing = False  # Flag to indicate if a song is currently being played
 downloaded_files = []  # List to store paths of downloaded MP3 files
+inactive_seconds = 0  # Counter for inactivity in seconds
 
 # Create an instance of a bot with the new command prefix '.'
 bot = commands.Bot(command_prefix=".", intents=intents)
@@ -34,6 +35,7 @@ os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 @bot.event
 async def on_ready():
     logging.info(f'Logged in as {bot.user}')
+    inactivity_checker.start()
 
 @bot.command()
 async def join(ctx):
@@ -176,6 +178,20 @@ async def download_mp3(url: str):
         logging.error(f"Error downloading audio: {e}")
         return None
 
+@tasks.loop(seconds=10)
+async def inactivity_checker():
+    """Check for inactivity and disconnect if inactive for 5 minutes."""
+    global inactive_seconds, voice_client, is_playing
+
+    if voice_client and not is_playing and not queue:
+        inactive_seconds += 10
+        if inactive_seconds >= 300:  # 5 minutes
+            await voice_client.disconnect()
+            voice_client = None
+            inactive_seconds = 0
+            logging.info("Disconnected due to inactivity.")
+    else:
+        inactive_seconds = 0  # Reset inactivity timer if playing or queue is not empty
 
 # Run the bot with the token
 bot.run(token)

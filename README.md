@@ -1,10 +1,10 @@
 # Selfhosted discord bot for playing music from Youtube.
 
 ## Commands
--`.p` - play audio from youtube video, example:
--`.p https://www.youtube.com/watch?v=dQw4w9WgXcQ`
--`.s` - stop all the songs and clear the queue
--`.skip` - skip current song
+- `.p` - play audio from youtube video, example:
+- `.p https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+- `.s` - stop all the songs and clear the queue
+- `.skip` - skip current song
 
 NOTE - bot has to download the audio first so there is a delay after play command is executed, in the past is was possible to play it directly from Youtube but this was blocked
 

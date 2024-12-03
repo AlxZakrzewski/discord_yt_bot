@@ -6,11 +6,11 @@
 - `.s` - stop all the songs and clear the queue
 - `.skip` - skip current song
 
-NOTE - bot has to download the audio first so there is a delay after play command is executed, in the past is was possible to play it directly from Youtube but now this is blocked
+NOTE - bot has to download the audio first so there is a delay after play command is executed, in the past it was possible to play it directly from Youtube but now this is blocked
 
 ## Prerequisites
 1. Install [docker](https://docs.docker.com/engine/install/) on the Linux machine you will run bot
-2. Setup empty discord bot with following [guide](https://discordpy.readthedocs.io/en/stable/discord.html), save token for the bot in save place and invite the bot to your server
+2. Setup empty discord bot with following [guide](https://discordpy.readthedocs.io/en/stable/discord.html), save token for the bot in safe place and invite the bot to your server
 3. Get cookies file from incognito tab from youtube main page when you are logged in, I did it with [Get cookies.txt LOCALLY](https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc?hl=en). If you will use this extension make sure you enable 'Allow in private' option in the settings for getting the cookies from incognito.
 
 ## Running the bot

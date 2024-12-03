@@ -6,7 +6,7 @@
 - `.s` - stop all the songs and clear the queue
 - `.skip` - skip current song
 
-NOTE - bot has to download the audio first so there is a delay after play command is executed, in the past is was possible to play it directly from Youtube but this was blocked
+NOTE - bot has to download the audio first so there is a delay after play command is executed, in the past is was possible to play it directly from Youtube but now this is blocked
 
 ## Prerequisites
 1. Install [docker](https://docs.docker.com/engine/install/) on the Linux machine you will run bot
@@ -22,3 +22,8 @@ docker run --rm -d --name bot_yt -v /path/to/your/cookies.txt:/app/cookies.txt -
 ```
 
 Bot should connect to your server, if your cookies.txt file is valid it should also play music from Youtube.
+
+You view the logs for the bot with:
+```
+docker logs bot_yt
+```

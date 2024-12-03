@@ -12,7 +12,7 @@ WORKDIR /app
 # Add bot user
 RUN addgroup -S bot && adduser -S bot -G bot
 
-COPY bot.py requirements.txt .
+COPY bot.py requirements.txt ./
 RUN chown -R bot:bot /app
 USER bot
 

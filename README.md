@@ -2,7 +2,7 @@
 
 ## Commands
 - `.p` - play audio from youtube video, example:
-- `.p https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+  - `.p https://www.youtube.com/watch?v=dQw4w9WgXcQ`
 - `.s` - stop all the songs and clear the queue
 - `.skip` - skip current song
 

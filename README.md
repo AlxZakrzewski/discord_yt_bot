@@ -11,7 +11,7 @@ NOTE - bot has to download the audio first so there is a delay after play comman
 ## Prerequisites
 1. Install [docker](https://docs.docker.com/engine/install/) on the Linux machine you will run bot
 2. Setup empty discord bot with following [guide](https://discordpy.readthedocs.io/en/stable/discord.html), save token for the bot in save place and invite the bot to your server
-3. Get cookies file from incognito tab from youtube main page when you are logged in, I did it with [Get cookies.txt LOCALLY](https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc?hl=en)
+3. Get cookies file from incognito tab from youtube main page when you are logged in, I did it with [Get cookies.txt LOCALLY](https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc?hl=en). If you will use this extension make sure you enable 'Allow in private' option in the settings for getting the cookies from incognito.
 
 ## Running the bot
 1. Login to the machine
@@ -23,7 +23,7 @@ docker run --rm -d --name bot_yt -v /path/to/your/cookies.txt:/app/cookies.txt -
 
 Bot should connect to your server, if your cookies.txt file is valid it should also play music from Youtube.
 
-You view the logs for the bot with:
+You can view the logs for the bot with:
 ```
 docker logs bot_yt
 ```

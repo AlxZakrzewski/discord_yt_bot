@@ -163,7 +163,7 @@ async def download_mp3(url: str):
         # Run yt-dlp via subprocess to download the audio as MP3
         command = [
             'yt-dlp',
-            '--format', 'bestaudio',  # Download the best audio format
+            '--format', 'bestaudio/best',  # Download the best audio format
             '--extract-audio',  # Extract audio only (no video)
             '--audio-format', 'mp3',
             '--output', mp3_file,  # Output file path

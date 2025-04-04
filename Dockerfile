@@ -5,7 +5,8 @@ RUN apk add ffmpeg
 
 # Install yt-dlp
 RUN wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/bin/yt-dlp && \
-    chmod a+rx /usr/bin/yt-dlp
+    chmod a+rx /usr/bin/yt-dlp && \
+    yt-dlp -U
 
 WORKDIR /app
 

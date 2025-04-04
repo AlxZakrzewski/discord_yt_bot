@@ -2,6 +2,7 @@
 import os
 import discord
 from discord.ext import commands, tasks
+from pytube import Playlist
 import subprocess
 import asyncio
 import hashlib
@@ -70,6 +71,25 @@ async def p(ctx, url: str):
 
     # Add the song to the queue
     queue.append(url)
+
+    # Start playback if not already playing
+    if not is_playing:
+        await play_next(ctx)
+
+@bot.command()
+async def pl(ctx, url: str):
+    global queue, is_playing
+
+    # Ensure the bot is in a voice channel
+    if not ctx.author.voice:
+        await ctx.send("You must be in a voice channel for me to play music!")
+        return
+    if not voice_client or not voice_client.is_connected():
+        await join(ctx)
+
+    playlist = Playlist(url)
+    for url in playlist:
+        queue.append(url)
 
     # Start playback if not already playing
     if not is_playing:
